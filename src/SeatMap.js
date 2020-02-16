@@ -22,7 +22,6 @@ const Item = styled.div`
   grid-row: auto;
   height: 40px;
   width: 40px;
-  background-color: lightgray;
   border-radius: 5%;
 `;
 
@@ -46,7 +45,7 @@ class SeatMap extends React.Component {
           <Main>
             <Container width={this.props.data.width}>
               {this.props.data.seats.map(seat => 
-                  <Item><Seat preferences={seat.preferences} available={seat.isAvailable} /></Item>
+                  <Item key={seat.number}><Seat preferences={seat.preferences} available={seat.isAvailable} /></Item>
               )}
             </Container>
           </Main>
