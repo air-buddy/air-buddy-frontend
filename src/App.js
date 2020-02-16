@@ -8,6 +8,7 @@ import Form from "./Form.js";
 import SeatMap from "./SeatMap.js";
 import styled from "styled-components";
 import { Container } from '@material-ui/core';
+import Passengers from "./Passengers.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -83,6 +84,7 @@ class App extends React.Component {
               </Text>
               <Text style={[styles.textStep, { fontWeight: "bold" }]}>{"Step 2: Seat Selection"}</Text>
               <Text style={styles.textStep}>{"Step 3: Confirmation"}</Text>
+              <Passengers />
             </View>
             <View style={{ flex: 0.7 }}>
               <Text style={styles.textSubtitleBlue}>
