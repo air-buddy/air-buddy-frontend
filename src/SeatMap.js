@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import seatMap from './seatmap.json';
+// import seatMap from './seatmap.json';
 import Seat from './Seat.js';
 
 const Container = styled.div`
@@ -44,9 +44,9 @@ class SeatMap extends React.Component {
     render() {
         return (
           <Main>
-            <Container width={seatMap.width}>
-              {seatMap.seats.map(seat => 
-                  <Item><Seat preferences={seat.preferences} available={seat.available} /></Item>
+            <Container width={this.props.data.width}>
+              {this.props.data.seats.map(seat => 
+                  <Item><Seat preferences={seat.preferences} available={seat.isAvailable} /></Item>
               )}
             </Container>
           </Main>
