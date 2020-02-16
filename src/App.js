@@ -18,9 +18,10 @@ class App extends React.Component {
   }
 
   onFormSubmit = flight => {
-    this.setState({
-      flight: flight
-    });
+    // this.setState({
+    //   flight: flight
+    // });
+    this.getSeatMap(flight);
   };
 
   getSeatMap = flight => {
@@ -31,6 +32,7 @@ class App extends React.Component {
       success: data => {
         console.log(data);
         this.setState({
+          flight: flight,
           seats: data
         });
       },
@@ -46,7 +48,7 @@ class App extends React.Component {
     const flightDepartText = "San Francisco (SFO)\nThu, Feb 20\n9:45 am";
     const flightArriveText =
       "Washington, DC-Dulles (IAD)\nThu, Feb 20\n5:44 pm";
-    if (this.state.flight.length === 1) {
+    if (this.state.flight.length === 0) {
       return (
         <View>
           <Heading>
@@ -73,10 +75,10 @@ class App extends React.Component {
           </View>
           <View style={{ flexDirection: "row", marginHorizontal: 40 }}>
             <View style={{ flex: 0.3, marginHorizontal: 20, marginTop: 20 }}>
-              <Text style={[styles.textStep, { fontWeight: "bold" }]}>
+              <Text style={styles.textStep}>
                 {"Step 1: Input Info"}
               </Text>
-              <Text style={styles.textStep}>{"Step 2: Seat Selection"}</Text>
+              <Text style={[styles.textStep, { fontWeight: "bold" }]}>{"Step 2: Seat Selection"}</Text>
               <Text style={styles.textStep}>{"Step 3: Confirmation"}</Text>
             </View>
             <View style={{ flex: 0.7 }}>

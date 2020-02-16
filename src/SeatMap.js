@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import seatMap from './seatmap.json';
+// import seatMap from './seatmap.json';
 import Seat from './Seat.js';
 
 const Container = styled.div`
