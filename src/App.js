@@ -95,7 +95,7 @@ class App extends React.Component {
               {"AirBuddy"}
             </Text>
           </View>
-          <View style={{ flexDirection: "row", marginHorizontal: 40 }}>
+          <View style={{ flexDirection: "row", maxWidth: 1200, alignSelf: "center" }}>
             <View style={{ flex: 0.3, marginHorizontal: 20, marginTop: 20 }}>
               <Text style={styles.textStep}>
                 {"Step 1: Input Info"}
