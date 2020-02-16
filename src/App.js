@@ -6,18 +6,31 @@ import styled from 'styled-components';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      flight: ''
+    };
   }
 
   render() {
-    return (
-      <div>
-        <Heading>
-          AirBuddy
-        </Heading>
-        <Form />
-      </div>
-    );
+    if (this.state.flight.length === 0) {
+      return (
+        <div>
+          <Heading>
+            AirBuddy
+          </Heading>
+          <Form />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Heading>
+            AirBuddy
+          </Heading>
+          Put a new component here
+        </div>
+      );
+    }
   }
 }
 
