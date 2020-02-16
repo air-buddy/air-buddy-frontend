@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import seatMap from './seatmap.json';
+import Seat from './Seat.js';
 
 const Container = styled.div`
 height: auto;
@@ -28,17 +29,11 @@ const Item = styled.div`
 class SeatMap extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            flight: ''
-        };
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.state = {};
     }
 
     onChange(event) {
-        this.setState({
-            flight: event.target.value
-        });
+        //
     }
 
     onSubmit(event) {
@@ -48,13 +43,20 @@ class SeatMap extends React.Component {
 
     render() {
         return (
+          <Main>
             <Container width={seatMap.width}>
               {seatMap.seats.map(seat => 
-                  <Item>{seat.number}</Item>
+                  <Item><Seat preferences={seat.preferences} available /></Item>
               )}
             </Container>
+          </Main>
         );
     }
 }
 
 export default SeatMap;
+
+const Main = styled.div`
+  display: flex;
+  margin: 114px 0px 0px 0px;
+`;
