@@ -2,8 +2,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import styles from "./styles";
 import $ from "jquery";
-import { airDarkGray, airMainBlue, airTeal } from "./Colors";
-import { FaComments, FaCommentSlash } from "react-icons/fa";
+import { airDarkGray, airTeal } from "./Colors";
 import "./App.css";
 import Form from "./Form.js";
 import SeatMap from "./SeatMap.js";
@@ -27,7 +26,7 @@ class App extends React.Component {
   getSeatMap = flight => {
     $.ajax({
       method: "GET",
-      url: `http://localhost:3000/seats?flight=${flight}`,
+      url: `http://18.188.0.114:8000/seats?flight=${flight}`,
       headers: { "content-type": "application/json" },
       success: data => {
         console.log(data);
@@ -105,7 +104,7 @@ class App extends React.Component {
                 </Text>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ paddingRight: 15, flex: 1 }}>
-                    <Text style={styles.textSubtitleLightBlue}>{"Flight"}</Text>
+                  <Text style={styles.textSubtitleLightBlue}>{"Flight "}{this.state.flight}</Text>
                     <Text>{flightDetailText}</Text>
                   </View>
                   <View style={{ paddingRight: 15, flex: 1 }}>
@@ -122,10 +121,7 @@ class App extends React.Component {
                   </View>
                 </View>
               </View>
-              <Text>Flight {this.state.flight}</Text>
               <SeatMap data={this.state.seats} />
-              <FaComments size={22} color={airMainBlue} />
-              <FaCommentSlash size={22} color={airMainBlue} />
             </View>
           </View>
         </View>
