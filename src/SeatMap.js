@@ -43,12 +43,12 @@ class SeatMap extends React.Component {
     const { data } = this.props;
     return (
       <Main>
-        <Container width={seatMap.width}>
+        <Container width={data.width}>
         <Item col={0}>A</Item>
         <Item col={1}>B</Item>
         <Item col={3}>C</Item>
         <Item col={4}>D</Item>
-          {seatMap.seats.map(seat => 
+          {data.seats.map(seat => 
             <Item key={seat.number} col={seat.x}>
                 <Seat preferences={seat.preferences} available={seat.available} />
             </Item>
