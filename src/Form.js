@@ -1,12 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { FormControl, InputLabel, Input, Button } from '@material-ui/core';
+import {
+  FormControl,
+  InputLabel,
+  Input,
+  Button,
+  CircularProgress
+} from "@material-ui/core";
 
 class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      flight: ""
+      flight: "",
+      isLoading: false
     };
   }
 
@@ -18,6 +25,7 @@ class Form extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
+    this.setState({ isLoading: true });
     this.props.onFormSubmit(this.state.flight);
   };
 
@@ -27,8 +35,22 @@ class Form extends React.Component {
         <form onSubmit={this.onSubmit}>
           <FormControl>
             <InputLabel>Flight #: </InputLabel>
-            <Input onChange={this.onChange} value={this.state.flight} />
-            <Button type="submit" variant="contained">Look up</Button>
+            <Input
+              onChange={this.onChange}
+              value={this.state.flight}
+              disabled={this.state.isLoading}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={this.state.isLoading}
+            >
+              {this.state.isLoading ? (
+                <CircularProgress size={24} />
+              ) : (
+                "Look up"
+              )}
+            </Button>
           </FormControl>
         </form>
       </Main>
