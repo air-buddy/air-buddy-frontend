@@ -5,53 +5,54 @@ import Seat from './Seat.js';
 
 const Container = styled.div`
 height: auto;
-width: 430px;
+width: 300px;
 margin: 0 auto;
-padding: 2em 0;
-border: 2px solid gray;
+padding: 4em 0;
+border-radius: 10%;
+background-color: #F5F5F5;
 display: grid;
-grid-template-columns: repeat(${props => props.width - 1}, 50px);
-grid-auto-rows: 40px;
-grid-row-gap: 15px;
+grid-template-columns: repeat(${props => props.width}, 50px);
+grid-auto-rows: 50px;
+grid-row-gap: 5px;
 justify-items: center;
 justify-content: center;
 `;
 
 const Item = styled.div`
-  grid-column: auto;
+  grid-column: ${props => props.col + 1};
   grid-row: auto;
-  height: 40px;
-  width: 40px;
-  background-color: lightgray;
-  border-radius: 5%;
+  height: 100%;
 `;
 
 class SeatMap extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    onChange(event) {
-        //
-    }
+  onChange(event) {
+    //
+  }
 
-    onSubmit(event) {
-        event.preventDefault();
-        alert('submitted!');
-    }
+  onSubmit(event) {
+    event.preventDefault();
+    alert('submitted!');
+  }
 
-    render() {
-        return (
-          <Main>
-            <Container width={seatMap.width}>
-              {seatMap.seats.map(seat => 
-                  <Item><Seat preferences={seat.preferences} available={seat.available} /></Item>
-              )}
-            </Container>
-          </Main>
-        );
-    }
+  render() {
+    const { data } = this.props;
+    return (
+      <Main>
+        <Container width={seatMap.width}>
+          {seatMap.seats.map(seat => 
+            <Item key={seat.number} col={seat.x}>
+                <Seat preferences={seat.preferences} available={seat.available} />
+            </Item>
+          )}
+        </Container>
+      </Main>
+    );
+  }
 }
 
 export default SeatMap;
