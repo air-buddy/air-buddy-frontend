@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import Seat from './Seat.js';
 
-class SeatMap extends React.Component {
+class Seat extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
 
-    onChange(event) {
-        //
+    onClick = () => {
+        alert('clicked!');
     }
 
     onSubmit(event) {
@@ -26,7 +25,7 @@ class SeatMap extends React.Component {
     }
 }
 
-export default SeatMap;
+export default Seat;
 
 const Main = styled.div`
   display: flex;
