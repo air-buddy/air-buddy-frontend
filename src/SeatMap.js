@@ -46,7 +46,7 @@ class SeatMap extends React.Component {
           <Main>
             <Container width={seatMap.width}>
               {seatMap.seats.map(seat => 
-                  <Item><Seat preferences={seat.preferences} available /></Item>
+                  <Item><Seat preferences={seat.preferences} available={seat.available} /></Item>
               )}
             </Container>
           </Main>
