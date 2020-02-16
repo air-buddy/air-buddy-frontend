@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FormControl, InputLabel, Input, Button } from '@material-ui/core';
 
 class Form extends React.Component {
   constructor(props) {
@@ -24,11 +25,11 @@ class Form extends React.Component {
     return (
       <Main>
         <form onSubmit={this.onSubmit}>
-          <label>
-            Flight #:
-            <input onChange={this.onChange} value={this.state.flight} />
-          </label>
-          <button>Look up</button>
+          <FormControl>
+            <InputLabel>Flight #: </InputLabel>
+            <Input onChange={this.onChange} value={this.state.flight} />
+            <Button type="submit" variant="contained">Look up</Button>
+          </FormControl>
         </form>
       </Main>
     );
@@ -39,5 +40,6 @@ export default Form;
 
 const Main = styled.div`
   display: flex;
-  margin: 114px 0px 0px 0px;
+  margin: 200px 0px auto;
+  justify-content: center;
 `;
