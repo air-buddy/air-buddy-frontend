@@ -4,17 +4,11 @@ import styled from 'styled-components';
 class SeatMap extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            flight: ''
-        };
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.state = {};
     }
 
     onChange(event) {
-        this.setState({
-            flight: event.target.value
-        });
+        //
     }
 
     onSubmit(event) {
@@ -24,11 +18,16 @@ class SeatMap extends React.Component {
 
     render() {
         return (
-          <div>
+          <Main>
             SEAT MAAAP
-          </div>
+          </Main>
         );
     }
 }
 
 export default SeatMap;
+
+const Main = styled.div`
+  display: flex;
+  margin: 114px 0px 0px 0px;
+`;

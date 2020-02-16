@@ -24,7 +24,7 @@ class App extends React.Component {
       return (
         <div>
           <Heading>
-            AirBuddy
+            <Title>AirBuddy</Title>
           </Heading>
           <Form onFormSubmit = {this.onFormSubmit}/>
         </div>
@@ -33,7 +33,7 @@ class App extends React.Component {
       return (
         <div>
           <Heading>
-            AirBuddy
+            <Title>AirBuddy</Title>
           </Heading>
           <p>Flight {this.state.flight}</p>
           <SeatMap />
@@ -46,5 +46,26 @@ class App extends React.Component {
 export default App;
 
 const Heading = styled.div`
-  color: blue;
+  position: absolute;
+  width: 1440px;
+  height: 114px;
+  left: 0px;
+  top: 0px;
+  background: #62A8C2;
+`;
+
+const Title = styled.p`
+  position: absolute;
+  width: 290px;
+  // height: 82px;
+  // left: 155px;
+  // top: 16px;
+  margin: 16px 155px;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 82px;
+  /* identical to box height */
+  color: #FFFFFF;
 `;

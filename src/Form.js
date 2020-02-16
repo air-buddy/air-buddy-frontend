@@ -22,7 +22,7 @@ class Form extends React.Component {
 
     render() {
         return (
-          <div>
+          <Main>
             <form onSubmit={this.onSubmit}>
                 <label>
                     Flight #:
@@ -32,9 +32,14 @@ class Form extends React.Component {
                     Look up
                 </button>
             </form>
-          </div>
+          </Main>
         );
     }
 }
 
 export default Form;
+
+const Main = styled.div`
+  display: flex;
+  margin: 114px 0px 0px 0px;
+`;
