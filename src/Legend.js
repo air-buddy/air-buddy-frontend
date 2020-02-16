@@ -1,6 +1,6 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { FaComments, FaCommentSlash } from 'react-icons/fa';
+import React from "react";
+import styled, { css } from "styled-components";
+import { FaComments, FaCommentSlash } from "react-icons/fa";
 import { airMainBlue } from "./Colors";
 
 export default () => (
@@ -22,13 +22,10 @@ export default () => (
         <p>Talkative</p>
       </div>
       <Square stoic>
-        <FaCommentSlash
-          size={45}
-          color={airMainBlue}
-        />
+        <FaCommentSlash size={45} color={airMainBlue} />
       </Square>
       <div>
-        <p>Stoic</p>
+        <p>Taciturn</p>
       </div>
     </Info>
   </div>
@@ -50,14 +47,14 @@ const Square = styled.div`
     height: 45px;
     transition: transform 150ms;
     ${props =>
-    props.unavailable &&
-    css`
+      props.unavailable &&
+      css`
         background: gray;
         border-radius: 10px;
       `}
     ${props =>
-    props.available &&
-    css`
+      props.available &&
+      css`
         background: #578328;
         border-radius: 10px;
         cursor: pointer;
@@ -68,14 +65,14 @@ const Square = styled.div`
         }
       `}
     ${props =>
-    props.talkative &&
-    css`
+      props.talkative &&
+      css`
         background: lightgrey;
         border-radius: 10px;
       `}
     ${props =>
-    props.stoic &&
-    css`
+      props.stoic &&
+      css`
         background: lightgrey;
         border-radius: 10px;
       `}
