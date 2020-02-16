@@ -42,6 +42,23 @@ class App extends React.Component {
     });
   };
 
+  postTalkPreference = (seat, likesToTalk) => {
+    $.ajax({
+      method: 'POST',
+      url: 'http://18.188.0.114:8000/seats',
+      dataType: 'json',
+      headers: {'content-type': 'application/json'},
+      data: JSON.stringify({flight: this.state.flight, number: seat, likesToTalk}),
+      success: (response) => {
+        console.log(response);
+        this.getSeatMap(this.state.flight);
+      },
+      error: (err) => {
+        console.log('err', err)
+      }
+    })
+  }
+
   render() {
     const flightDetailText =
       "Nonstop | Details Alaska 1084\nDistance: 2,412 mi | \nDuration: 4hours59m";
@@ -123,7 +140,7 @@ class App extends React.Component {
                   </View>
                 </View>
               </View>
-              <SeatMap data={this.state.seats} />
+              <SeatMap data={this.state.seats} postReq={this.postTalkPreference}/>
             </View>
           </View>
         </View>

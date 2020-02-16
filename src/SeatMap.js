@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 // import seatMap from './seatmap.json';
 import Seat from './Seat.js';
+import $ from 'jquery';
 
 const Container = styled.div`
 height: auto;
@@ -45,7 +46,7 @@ class SeatMap extends React.Component {
           <Main>
             <Container width={this.props.data.width}>
               {this.props.data.seats.map(seat => 
-                  <Item key={seat.number}><Seat preferences={seat.preferences} available={seat.isAvailable} /></Item>
+                  <Item key={seat.number}><Seat number={seat.number} preferences={seat.preferences} available={seat.isAvailable} post={this.props.postReq}/></Item>
               )}
             </Container>
           </Main>
