@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 // import seatMap from './seatmap.json';
-import Seat from "./Seat.js";
+import Seat from './Seat.js';
+import $ from 'jquery';
 
 const Container = styled.div`
   height: auto;
@@ -25,19 +26,19 @@ const Item = styled.div`
 `;
 
 class SeatMap extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
-  onChange(event) {
-    //
-  }
+    onChange(event) {
+        //
+    }
 
-  onSubmit(event) {
-    event.preventDefault();
-    alert("submitted!");
-  }
+    onSubmit(event) {
+        event.preventDefault();
+        alert('submitted!');
+    }
 
   render() {
     const { data } = this.props;
@@ -53,6 +54,8 @@ class SeatMap extends React.Component {
               <Seat
                 preferences={seat.preferences}
                 available={seat.isAvailable}
+                number={seat.number}
+                post={this.props.postReq}
               />
             </Item>
           ))}

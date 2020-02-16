@@ -25,7 +25,7 @@ class Seat extends React.Component {
     return (
       <Tippy
         enabled={this.props.available}
-        content={<Tooltip />}
+        content={<Tooltip number={this.props.number} post={this.props.post}/>}
         interactive={true}
         trigger="click"
         theme="light"
