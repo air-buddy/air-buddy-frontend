@@ -7,6 +7,7 @@ import "./App.css";
 import Form from "./Form.js";
 import SeatMap from "./SeatMap.js";
 import styled from "styled-components";
+import { Container } from '@material-ui/core';
 
 class App extends React.Component {
   constructor(props) {
@@ -54,7 +55,9 @@ class App extends React.Component {
           <Heading>
             <Title>AirBuddy</Title>
           </Heading>
-          <Form onFormSubmit={this.onFormSubmit} />
+          <Container maxWidth="sm">
+            <Form onFormSubmit={this.onFormSubmit} />
+          </Container>
         </View>
       );
     } else {
@@ -136,7 +139,7 @@ export default App;
 
 const Heading = styled.div`
   position: absolute;
-  width: 1440px;
+  width: 100%;
   height: 114px;
   left: 0px;
   top: 0px;
