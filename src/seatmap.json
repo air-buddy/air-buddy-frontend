@@ -1,0 +1,495 @@
+{
+  "width": 5,
+  "seats": [
+    { "number": "1A", "x": 0, "y": 0, "available": false, "preferences": null },
+    { "number": "1B", "x": 1, "y": 0, "available": false, "preferences": null },
+    { "number": "1C", "x": 3, "y": 0, "available": false, "preferences": null },
+    {
+      "number": "1D",
+      "x": 4,
+      "y": 0,
+      "available": false,
+      "preferences": { "likesToTalk": false }
+    },
+    { "number": "2A", "x": 0, "y": 1, "available": false, "preferences": null },
+    {
+      "number": "2B",
+      "x": 1,
+      "y": 1,
+      "available": false,
+      "preferences": { "likesToTalk": false }
+    },
+    { "number": "2C", "x": 3, "y": 1, "available": false, "preferences": null },
+    { "number": "2D", "x": 4, "y": 1, "available": false, "preferences": null },
+    { "number": "3A", "x": 0, "y": 2, "available": true, "preferences": null },
+    {
+      "number": "3B",
+      "x": 1,
+      "y": 2,
+      "available": true,
+      "preferences": { "likesToTalk": false }
+    },
+    { "number": "3C", "x": 3, "y": 2, "available": true, "preferences": null },
+    { "number": "3D", "x": 4, "y": 2, "available": true, "preferences": null },
+    { "number": "4A", "x": 0, "y": 3, "available": true, "preferences": null },
+    { "number": "4B", "x": 1, "y": 3, "available": true, "preferences": null },
+    { "number": "4C", "x": 3, "y": 3, "available": true, "preferences": null },
+    { "number": "4D", "x": 4, "y": 3, "available": true, "preferences": null },
+    { "number": "5A", "x": 0, "y": 4, "available": true, "preferences": null },
+    { "number": "5B", "x": 1, "y": 4, "available": true, "preferences": null },
+    { "number": "5C", "x": 3, "y": 4, "available": true, "preferences": null },
+    { "number": "5D", "x": 4, "y": 4, "available": true, "preferences": null },
+    { "number": "6A", "x": 0, "y": 5, "available": true, "preferences": null },
+    {
+      "number": "6B",
+      "x": 1,
+      "y": 5,
+      "available": true,
+      "preferences": { "likesToTalk": true }
+    },
+    { "number": "6C", "x": 3, "y": 5, "available": true, "preferences": null },
+    { "number": "6D", "x": 4, "y": 5, "available": true, "preferences": null },
+    { "number": "7A", "x": 0, "y": 6, "available": true, "preferences": null },
+    { "number": "7B", "x": 1, "y": 6, "available": true, "preferences": null },
+    { "number": "7C", "x": 3, "y": 6, "available": true, "preferences": null },
+    { "number": "7D", "x": 4, "y": 6, "available": true, "preferences": null },
+    { "number": "8A", "x": 0, "y": 7, "available": true, "preferences": null },
+    {
+      "number": "8B",
+      "x": 1,
+      "y": 7,
+      "available": true,
+      "preferences": { "likesToTalk": false }
+    },
+    { "number": "8C", "x": 3, "y": 7, "available": true, "preferences": null },
+    { "number": "8D", "x": 4, "y": 7, "available": true, "preferences": null },
+    { "number": "9A", "x": 0, "y": 8, "available": true, "preferences": null },
+    { "number": "9B", "x": 1, "y": 8, "available": true, "preferences": null },
+    { "number": "9C", "x": 3, "y": 8, "available": true, "preferences": null },
+    { "number": "9D", "x": 4, "y": 8, "available": true, "preferences": null },
+    { "number": "10A", "x": 0, "y": 9, "available": true, "preferences": null },
+    { "number": "10B", "x": 1, "y": 9, "available": true, "preferences": null },
+    { "number": "10C", "x": 3, "y": 9, "available": true, "preferences": null },
+    { "number": "10D", "x": 4, "y": 9, "available": true, "preferences": null },
+    {
+      "number": "11A",
+      "x": 0,
+      "y": 10,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "11B",
+      "x": 1,
+      "y": 10,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "11C",
+      "x": 3,
+      "y": 10,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "11D",
+      "x": 4,
+      "y": 10,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "12A",
+      "x": 0,
+      "y": 11,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "12B",
+      "x": 1,
+      "y": 11,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "12C",
+      "x": 3,
+      "y": 11,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "12D",
+      "x": 4,
+      "y": 11,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "13A",
+      "x": 0,
+      "y": 12,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "13B",
+      "x": 1,
+      "y": 12,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "13C",
+      "x": 3,
+      "y": 12,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "13D",
+      "x": 4,
+      "y": 12,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "14A",
+      "x": 0,
+      "y": 13,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "14B",
+      "x": 1,
+      "y": 13,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "14C",
+      "x": 3,
+      "y": 13,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "14D",
+      "x": 4,
+      "y": 13,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "15A",
+      "x": 0,
+      "y": 14,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "15B",
+      "x": 1,
+      "y": 14,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "15C",
+      "x": 3,
+      "y": 14,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "15D",
+      "x": 4,
+      "y": 14,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "16A",
+      "x": 0,
+      "y": 15,
+      "available": true,
+      "preferences": { "likesToTalk": false }
+    },
+    {
+      "number": "16B",
+      "x": 1,
+      "y": 15,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "16C",
+      "x": 3,
+      "y": 15,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "16D",
+      "x": 4,
+      "y": 15,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "17A",
+      "x": 0,
+      "y": 16,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "17B",
+      "x": 1,
+      "y": 16,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "17C",
+      "x": 3,
+      "y": 16,
+      "available": true,
+      "preferences": { "likesToTalk": false }
+    },
+    {
+      "number": "17D",
+      "x": 4,
+      "y": 16,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "18A",
+      "x": 0,
+      "y": 17,
+      "available": true,
+      "preferences": { "likesToTalk": false }
+    },
+    {
+      "number": "18B",
+      "x": 1,
+      "y": 17,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "18C",
+      "x": 3,
+      "y": 17,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "18D",
+      "x": 4,
+      "y": 17,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "19A",
+      "x": 0,
+      "y": 18,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "19B",
+      "x": 1,
+      "y": 18,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "19C",
+      "x": 3,
+      "y": 18,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "19D",
+      "x": 4,
+      "y": 18,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "20A",
+      "x": 0,
+      "y": 19,
+      "available": true,
+      "preferences": { "likesToTalk": false }
+    },
+    {
+      "number": "20B",
+      "x": 1,
+      "y": 19,
+      "available": true,
+      "preferences": { "likesToTalk": false }
+    },
+    {
+      "number": "20C",
+      "x": 3,
+      "y": 19,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "20D",
+      "x": 4,
+      "y": 19,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "21A",
+      "x": 0,
+      "y": 20,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "21B",
+      "x": 1,
+      "y": 20,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "21C",
+      "x": 3,
+      "y": 20,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "21D",
+      "x": 4,
+      "y": 20,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "22A",
+      "x": 0,
+      "y": 21,
+      "available": true,
+      "preferences": { "likesToTalk": true }
+    },
+    {
+      "number": "22B",
+      "x": 1,
+      "y": 21,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "22C",
+      "x": 3,
+      "y": 21,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "22D",
+      "x": 4,
+      "y": 21,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "23A",
+      "x": 0,
+      "y": 22,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "23B",
+      "x": 1,
+      "y": 22,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "23C",
+      "x": 3,
+      "y": 22,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "23D",
+      "x": 4,
+      "y": 22,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "24A",
+      "x": 0,
+      "y": 23,
+      "available": true,
+      "preferences": { "likesToTalk": false }
+    },
+    {
+      "number": "24B",
+      "x": 1,
+      "y": 23,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "24C",
+      "x": 3,
+      "y": 23,
+      "available": true,
+      "preferences": null
+    },
+    {
+      "number": "24D",
+      "x": 4,
+      "y": 23,
+      "available": true,
+      "preferences": { "likesToTalk": false }
+    },
+    {
+      "number": "25A",
+      "x": 0,
+      "y": 24,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "25B",
+      "x": 1,
+      "y": 24,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "25C",
+      "x": 3,
+      "y": 24,
+      "available": false,
+      "preferences": null
+    },
+    {
+      "number": "25D",
+      "x": 4,
+      "y": 24,
+      "available": false,
+      "preferences": null
+    }
+  ]
+}
