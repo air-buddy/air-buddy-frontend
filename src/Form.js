@@ -7,19 +7,17 @@ class Form extends React.Component {
         this.state = {
             flight: ''
         };
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onChange(event) {
+    onChange = (event) => {
         this.setState({
             flight: event.target.value
         });
     }
 
-    onSubmit(event) {
+    onSubmit = (event) => {
         event.preventDefault();
-        alert('submitted!');
+        this.props.onFormSubmit(this.state.flight);
     }
 
     render() {

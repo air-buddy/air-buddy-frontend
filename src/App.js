@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Form from './Form.js';
+import SeatMap from './SeatMap.js';
 import styled from 'styled-components';
 
 class App extends React.Component {
@@ -11,14 +12,21 @@ class App extends React.Component {
     };
   }
 
+  onFormSubmit = (flight) => {
+    this.setState({
+      flight: flight
+    });
+  }
+
   render() {
+    console.log(this.state.flight);
     if (this.state.flight.length === 0) {
       return (
         <div>
           <Heading>
             AirBuddy
           </Heading>
-          <Form />
+          <Form onFormSubmit = {this.onFormSubmit}/>
         </div>
       );
     } else {
@@ -27,7 +35,8 @@ class App extends React.Component {
           <Heading>
             AirBuddy
           </Heading>
-          Put a new component here
+          <p>Flight {this.state.flight}</p>
+          <SeatMap />
         </div>
       );
     }
