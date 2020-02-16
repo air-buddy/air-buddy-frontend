@@ -2,7 +2,10 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { FaComments, FaCommentSlash } from "react-icons/fa";
 import { airMainBlue } from "./Colors";
-import Tooltip from './Tooltip.js';
+import Tooltip from "./Tooltip.js";
+import Tippy from "@tippy.js/react";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/themes/light.css";
 
 class Seat extends React.Component {
   // props:
@@ -10,7 +13,6 @@ class Seat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tooltip: false,
       number: undefined,
       x: undefined,
       y: undefined,
@@ -19,54 +21,51 @@ class Seat extends React.Component {
     };
   }
 
-  onClick = () => {
-    this.setState({tooltip: true});
-  };
-
-  onSubmit(event) {
-    event.preventDefault();
-    alert("submitted!");
+  render() {
+    return (
+      <Tippy
+        enabled={this.props.available}
+        content={<Tooltip />}
+        interactive={true}
+        trigger="click"
+        theme="light"
+      >
+        <div>{this.renderTarget()}</div>
+      </Tippy>
+    );
   }
 
-  render() {
-    var popup = <div />
-    if (this.state.tooltip === true) {
-      popup = <Tooltip />
-    }
+  renderTarget() {
     if (this.props.available === true) {
-      return (
-          <div style={{position: "relative"}}>
-              {popup}
-              <Square available onClick={this.onClick}/>
-          </div>
-          );
+      return <Square available />;
     } else if (this.props.preferences === null) {
-      return (
-          <div>
-              <Square unavailable onClick={this.onClick}/>
-          </div>
-      );
+      return <Square unavailable />;
     } else if (this.props.preferences.likesToTalk) {
       return (
-          <div>
-              <FaComments size={45} color={airMainBlue} onClick={this.onClick}/>
-          </div>
+        <Square talkative>
+          <FaComments size={45} color={airMainBlue} />
+        </Square>
       );
     } else {
       return (
-          <div>
-              <FaCommentSlash size={45} color={airMainBlue} onClick={this.onClick}/>
-          </div>
+        <Square stoic>
+          <FaCommentSlash
+            size={45}
+            color={airMainBlue}
+            onClick={this.onClick}
+          />
+        </Square>
       );
     }
   }
 }
-  
+
 export default Seat;
 
 const Square = styled.div`
     width: 45px;
     height: 45px;
+    transition: transform 150ms;
     ${props =>
       props.unavailable &&
       css`
@@ -77,6 +76,24 @@ const Square = styled.div`
       props.available &&
       css`
         background: #578328;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover {
+          background: #689c2f;
+          transform: scale(1.05);
+        }
+      `}
+    ${props =>
+      props.talkative &&
+      css`
+        background: lightgrey;
+        border-radius: 10px;
+      `}
+    ${props =>
+      props.stoic &&
+      css`
+        background: lightgrey;
         border-radius: 10px;
       `}
 `;
