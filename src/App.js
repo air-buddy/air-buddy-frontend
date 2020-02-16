@@ -7,7 +7,7 @@ import "./App.css";
 import Form from "./Form.js";
 import SeatMap from "./SeatMap.js";
 import styled from "styled-components";
-import { Container } from '@material-ui/core';
+import { Container } from "@material-ui/core";
 import Passengers from "./Passengers.js";
 import Legend from "./Legend.js";
 
@@ -45,22 +45,44 @@ class App extends React.Component {
     });
   };
 
-  postTalkPreference = (seat, likesToTalk) => {
+  postTalkPreference = (seatNumber, likesToTalk) => {
+    // Update locally.
+    const seatIndex = this.state.seats.seats.findIndex(
+      s => s.number === seatNumber
+    );
+    if (seatIndex > 0) {
+      const updatedSeats = this.state.seats.seats.slice();
+      updatedSeats[seatIndex] = {
+        ...updatedSeats[seatIndex],
+        isAvailable: false,
+        preferences: { likesToTalk }
+      };
+      this.setState({
+        seats: {
+          ...this.state.seats,
+          seats: updatedSeats
+        }
+      });
+    }
     $.ajax({
-      method: 'POST',
-      url: 'http://18.188.0.114:8000/seats',
-      dataType: 'json',
-      headers: {'content-type': 'application/json'},
-      data: JSON.stringify({flight: this.state.flight, number: seat, likesToTalk}),
-      success: (response) => {
+      method: "POST",
+      url: "http://18.188.0.114:8000/seats",
+      dataType: "json",
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify({
+        flight: this.state.flight,
+        number: seatNumber,
+        likesToTalk
+      }),
+      success: response => {
         console.log(response);
         this.getSeatMap(this.state.flight);
       },
-      error: (err) => {
-        console.log('err', err)
+      error: err => {
+        console.log("err", err);
       }
-    })
-  }
+    });
+  };
 
   render() {
     const flightDetailText =
@@ -95,12 +117,18 @@ class App extends React.Component {
               {"AirBuddy"}
             </Text>
           </View>
-          <View style={{ flexDirection: "row", maxWidth: 1200, alignSelf: "center" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              maxWidth: 1200,
+              alignSelf: "center"
+            }}
+          >
             <View style={{ flex: 0.3, marginHorizontal: 20, marginTop: 20 }}>
-              <Text style={styles.textStep}>
-                {"Step 1: Input Info"}
+              <Text style={styles.textStep}>{"Step 1: Input Info"}</Text>
+              <Text style={[styles.textStep, { fontWeight: "bold" }]}>
+                {"Step 2: Seat Selection"}
               </Text>
-              <Text style={[styles.textStep, { fontWeight: "bold" }]}>{"Step 2: Seat Selection"}</Text>
               <Text style={styles.textStep}>{"Step 3: Confirmation"}</Text>
               <Passengers />
               <Legend />
@@ -130,7 +158,10 @@ class App extends React.Component {
                 </Text>
                 <View style={{ flexDirection: "row" }}>
                   <View style={{ paddingRight: 15, flex: 1 }}>
-                  <Text style={styles.textSubtitleLightBlue}>{"Flight "}{this.state.flight}</Text>
+                    <Text style={styles.textSubtitleLightBlue}>
+                      {"Flight "}
+                      {this.state.flight}
+                    </Text>
                     <Text>{flightDetailText}</Text>
                   </View>
                   <View style={{ paddingRight: 15, flex: 1 }}>
@@ -147,7 +178,10 @@ class App extends React.Component {
                   </View>
                 </View>
               </View>
-              <SeatMap data={this.state.seats} postReq={this.postTalkPreference}/>
+              <SeatMap
+                data={this.state.seats}
+                postReq={this.postTalkPreference}
+              />
             </View>
           </View>
         </View>
