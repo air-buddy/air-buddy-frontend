@@ -1,5 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { FaComments, FaCommentSlash } from "react-icons/fa";
+import { airMainBlue } from "./Colors";
+import Tooltip from './Tooltip.js';
 
 class Seat extends React.Component {
   // props:
@@ -7,6 +10,7 @@ class Seat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      tooltip: false,
       number: undefined,
       x: undefined,
       y: undefined,
@@ -16,7 +20,7 @@ class Seat extends React.Component {
   }
 
   onClick = () => {
-    alert("clicked!");
+    this.setState({tooltip: true});
   };
 
   onSubmit(event) {
@@ -25,18 +29,42 @@ class Seat extends React.Component {
   }
 
   render() {
+    var popup = <div />
+    if (this.state.tooltip === true) {
+      popup = <Tooltip />
+    }
     if (this.props.available === false) {
-      return <Square unavailable />;
+      return (
+          <div style={{position: "relative"}}>
+              {popup}
+              <Square unavailable onClick={this.onClick}/>
+          </div>
+          );
     } else if (this.props.preferences === null) {
-      return <Square available />;
+      return (
+          <div>
+              {popup}
+              <Square available onClick={this.onClick}/>
+          </div>
+      );
     } else if (this.props.preferences.likesToTalk) {
-      return <Square talkative />;
+      return (
+          <div>
+              {popup}
+              <FaComments size={45} color={airMainBlue} onClick={this.onClick}/>
+          </div>
+      );
     } else {
-      return <Square stoic />;
+      return (
+          <div>
+              {popup}
+              <FaCommentSlash size={45} color={airMainBlue} onClick={this.onClick}/>
+          </div>
+      );
     }
   }
 }
-
+  
 export default Seat;
 
 const Square = styled.div`
