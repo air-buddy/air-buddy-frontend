@@ -10,20 +10,24 @@ import styled from "styled-components";
 import { Container } from "@material-ui/core";
 import Passengers from "./Passengers.js";
 import Legend from "./Legend.js";
+import ConfirmationPage from "./ConfirmationPage";
+
+const INITIAL_STATE = {
+  flight: "",
+  seats: {},
+  seatNumber: null,
+  likesToTalk: null
+};
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      flight: "",
-      seats: {}
-    };
+    this.state = INITIAL_STATE;
   }
 
+  reset = () => this.setState(INITIAL_STATE);
+
   onFormSubmit = flight => {
-    // this.setState({
-    //   flight: flight
-    // });
     this.getSeatMap(flight);
   };
 
@@ -63,6 +67,7 @@ class App extends React.Component {
           seats: updatedSeats
         }
       });
+      setTimeout(() => this.setState({ seatNumber, likesToTalk }), 1500);
     }
     $.ajax({
       method: "POST",
@@ -86,7 +91,7 @@ class App extends React.Component {
 
   render() {
     const flightDetailText =
-      "Nonstop | Details Alaska 1084\nDistance: 2,412 mi | \nDuration: 4hours59m";
+      "Nonstop | Details United 100\nDistance: 2,412 mi | \nDuration: 4hours59m";
     const flightDepartText = "San Francisco (SFO)\nThu, Feb 20\n9:45 am";
     const flightArriveText =
       "Washington, DC-Dulles (IAD)\nThu, Feb 20\n5:44 pm";
@@ -101,7 +106,7 @@ class App extends React.Component {
           </Container>
         </View>
       );
-    } else {
+    } else if (this.state.seatNumber == null) {
       return (
         <View>
           <View style={{ height: 100, backgroundColor: airTeal }}>
@@ -186,6 +191,15 @@ class App extends React.Component {
           </View>
         </View>
       );
+    } else {
+      return (
+        <ConfirmationPage
+          flight={this.state.flight}
+          seatNumber={this.state.seatNumber}
+          likesToTalk={this.state.likesToTalk}
+          returnToStart={this.reset}
+        />
+      );
     }
   }
 }
@@ -204,9 +218,6 @@ const Heading = styled.div`
 const Title = styled.p`
   position: absolute;
   width: 290px;
-  // height: 82px;
-  // left: 155px;
-  // top: 16px;
   margin: 16px 155px;
   font-family: Arial;
   font-style: normal;
