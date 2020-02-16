@@ -1,29 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 // import seatMap from './seatmap.json';
 import Seat from './Seat.js';
 import $ from 'jquery';
 
 const Container = styled.div`
-height: auto;
-width: 430px;
-margin: 0 auto;
-padding: 2em 0;
-border: 2px solid gray;
-display: grid;
-grid-template-columns: repeat(${props => props.width - 1}, 50px);
-grid-auto-rows: 40px;
-grid-row-gap: 15px;
-justify-items: center;
-justify-content: center;
+  height: auto;
+  width: 350px;
+  margin: 0 auto;
+  padding: 4em 0;
+  border-radius: 15px;
+  background-color: #f5f5f5;
+  display: grid;
+  grid-template-columns: repeat(${props => props.width}, 50px);
+  grid-auto-rows: 50px;
+  grid-row-gap: 10px;
+  justify-items: center;
+  justify-content: center;
 `;
 
 const Item = styled.div`
-  grid-column: auto;
+  grid-column: ${props => props.col + 1};
   grid-row: auto;
-  height: 40px;
-  width: 40px;
-  border-radius: 5%;
+  height: 100%;
 `;
 
 class SeatMap extends React.Component {
@@ -41,22 +40,34 @@ class SeatMap extends React.Component {
         alert('submitted!');
     }
 
-    render() {
-        return (
-          <Main>
-            <Container width={this.props.data.width}>
-              {this.props.data.seats.map(seat => 
-                  <Item key={seat.number}><Seat number={seat.number} preferences={seat.preferences} available={seat.isAvailable} post={this.props.postReq}/></Item>
-              )}
-            </Container>
-          </Main>
-        );
-    }
+  render() {
+    const { data } = this.props;
+    return (
+      <Main>
+        <Container width={data.width}>
+          <Item col={0}>A</Item>
+          <Item col={1}>B</Item>
+          <Item col={3}>C</Item>
+          <Item col={4}>D</Item>
+          {data.seats.map(seat => (
+            <Item key={seat.number} col={seat.x}>
+              <Seat
+                preferences={seat.preferences}
+                available={seat.isAvailable}
+                number={seat.number}
+                post={this.props.postReq}
+              />
+            </Item>
+          ))}
+        </Container>
+      </Main>
+    );
+  }
 }
 
 export default SeatMap;
 
 const Main = styled.div`
   display: flex;
-  margin: 114px 0px 0px 0px;
+  margin: 60px 0px 0px 0px;
 `;
