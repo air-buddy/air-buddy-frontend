@@ -1,10 +1,11 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { airDarkGray, airLinkBlue, airTeal } from "./Colors";
+import { airDarkGray, airTeal } from "./Colors";
+import styles from "./styles";
 
 import "./App.css";
 import Form from "./Form.js";
-import SeatMap from "./SeatMap.js";
+// import SeatMap from "./SeatMap.js";
 import styled from "styled-components";
 
 class App extends React.Component {
@@ -50,46 +51,19 @@ class App extends React.Component {
                 fontWeight: "bold"
               }}
             >
-              AirBuddy
+              {"AirBuddy"}
             </Text>
           </View>
-          <View style={{ flexDirection: "row" }}>
-            <View style={{ flex: 0.3, marginLeft: 20, marginTop: 20 }}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: "bold",
-                  marginBottom: 10
-                }}
-              >
+          <View style={{ flexDirection: "row", marginHorizontal: 40 }}>
+            <View style={{ flex: 0.3, marginHorizontal: 20, marginTop: 20 }}>
+              <Text style={[styles.textStep, { fontWeight: "bold" }]}>
                 {"Step 1: Input Info"}
               </Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  marginBottom: 10
-                }}
-              >
-                {"Step 2: Seat Selection"}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  marginBottom: 10
-                }}
-              >
-                {"Step 3: Confirmation"}
-              </Text>
+              <Text style={styles.textStep}>{"Step 2: Seat Selection"}</Text>
+              <Text style={styles.textStep}>{"Step 3: Confirmation"}</Text>
             </View>
             <View style={{ flex: 0.7 }}>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: "bold",
-                  marginBottom: 10,
-                  marginTop: 20
-                }}
-              >
+              <Text style={styles.textSubtitleBlue}>
                 {"Your confirmed reservation"}
               </Text>
               <View
@@ -97,6 +71,7 @@ class App extends React.Component {
                   borderRadius: 20,
                   borderWidth: 3,
                   borderColor: airDarkGray,
+                  marginTop: 20,
                   paddingHorizontal: 20,
                   paddingBottom: 20
                 }}
@@ -104,50 +79,32 @@ class App extends React.Component {
                 <Text
                   style={{
                     fontSize: 20,
-                    marginBottom: 10,
-                    marginTop: 20
+                    marginBottom: 20,
+                    marginTop: 10
                   }}
                 >
                   {"Flight summary"}
                 </Text>
                 <View style={{ flexDirection: "row" }}>
-                  <View style={{ paddingRight: 10, flex: 1 }}>
-                    <Text
-                      style={{
-                        fontSize: 20,
-                        color: airLinkBlue
-                      }}
-                    >
-                      {"Flight"}
-                    </Text>
+                  <View style={{ paddingRight: 15, flex: 1 }}>
+                    <Text style={styles.textSubtitleLightBlue}>{"Flight"}</Text>
                     <Text>{flightDetailText}</Text>
                   </View>
-                  <View style={{ paddingRight: 10, flex: 1 }}>
-                    <Text
-                      style={{
-                        fontSize: 20,
-                        color: airLinkBlue
-                      }}
-                    >
+                  <View style={{ paddingRight: 15, flex: 1 }}>
+                    <Text style={styles.textSubtitleLightBlue}>
                       {"Departs"}
                     </Text>
                     <Text>{flightDepartText}</Text>
                   </View>
-                  <View style={{ paddingRight: 10, flex: 1 }}>
-                    <Text
-                      style={{
-                        fontSize: 20,
-                        color: airLinkBlue
-                      }}
-                    >
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.textSubtitleLightBlue}>
                       {"Arrives"}
                     </Text>
                     <Text>{flightArriveText}</Text>
                   </View>
                 </View>
               </View>
-              <Text>Flight {this.state.flight}</Text>
-              <SeatMap />
+              {/* <Text>Flight {this.state.flight}</Text> */}
             </View>
           </View>
         </View>
