@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, View } from "react-native";
 import styles from "./styles";
-import $ from 'jquery';
-import { airDarkGray, airTeal } from "./Colors";
-
+import $ from "jquery";
+import { airDarkGray, airMainBlue, airTeal } from "./Colors";
+import { FaComments, FaCommentSlash } from "react-icons/fa";
 import "./App.css";
 import Form from "./Form.js";
 import SeatMap from "./SeatMap.js";
@@ -24,22 +24,22 @@ class App extends React.Component {
     });
   };
 
-  getSeatMap = (flight) => {
+  getSeatMap = flight => {
     $.ajax({
-      method: 'GET',
+      method: "GET",
       url: `http://localhost:3000/seats?flight=${flight}`,
-      headers: {'content-type': 'application/json'},
-      success: (data) => {
-        console.log(data)
+      headers: { "content-type": "application/json" },
+      success: data => {
+        console.log(data);
         this.setState({
-          seats: data,
-        })
+          seats: data
+        });
       },
-      error: (err) => {
-        console.log('err', err)
+      error: err => {
+        console.log("err", err);
       }
-    })
-  }
+    });
+  };
 
   render() {
     const flightDetailText =
@@ -47,7 +47,7 @@ class App extends React.Component {
     const flightDepartText = "San Francisco (SFO)\nThu, Feb 20\n9:45 am";
     const flightArriveText =
       "Washington, DC-Dulles (IAD)\nThu, Feb 20\n5:44 pm";
-    if (this.state.flight.length === 0) {
+    if (this.state.flight.length === 1) {
       return (
         <View>
           <Heading>
@@ -123,7 +123,9 @@ class App extends React.Component {
                 </View>
               </View>
               <Text>Flight {this.state.flight}</Text>
-              <SeatMap data={this.state.seats}/>
+              <SeatMap data={this.state.seats} />
+              <FaComments size={22} color={airMainBlue} />
+              <FaCommentSlash size={22} color={airMainBlue} />
             </View>
           </View>
         </View>
