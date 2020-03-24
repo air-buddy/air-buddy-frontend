@@ -28,7 +28,7 @@ You will also see any lint errors in the console.
 ## Authors
 
 * **[David Philipson](https://github.com/dphilipson)** - *Frontend styles, API*
-* **[Jennifer Bainbridge-Smith]()** - *General Frontend Wizardry*
+* **[Jessica Bainbridge-Smith]()** - *General Frontend Wizardry*
 * **[Suejung Shin]()** - *User Data Storage, Deployment*
 * **[Desmond Rogers]()** - *Landing Page, Seatmap Component*
 * **[Vicky Wu]()** - *Design*
